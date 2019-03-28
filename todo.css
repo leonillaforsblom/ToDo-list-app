@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600');
+
+body {
+  background-color: #fff;
+}
+
+header h1 {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+header {
+  background-image: linear-gradient(rgba(89, 134, 231, 0.89), rgba(134, 186, 206, 0.89));
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+
+.top-container {
+  text-align: center;
+}
+
+.function-buttons {
+  align-items: center;
+  justify-items: center;
+}
+
+#taskinput {
+  height: 40px;
+  width: 300px;
+  border-radius: 4px;
+  border: 1px solid rgb(124, 124, 124);
+  font-size: 12px;
+}
+
+button {
+  margin: 15px;
+  height: 30px;
+  justify-self: flex-start;
+  border-radius: 4px;
+  color: white;
+  background-color: rgba(89, 134, 231, 0.89);
+  font-size: 12px;
+}
+
+.button-remove {
+  background-color: rgb(241, 58, 58);
+  top: 10px;
+  right: 10px;
+  color: white;
+  border: none;
+}
+
+.list-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  grid-gap: 20px 25px;
+  padding-top: 10px;
+}
+
+ul {
+  font-family: 'Open Sans', sans-serif;
+  list-style: none;
+  width: 300px;
+  text-align: center;
+}
+
+li {
+  height: 100px;
+  margin: 10px;
+  overflow-wrap: break-word;
+  overflow-x: scroll;
+  background: #ade3f881;
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px 2px #86acbbc2;
+  position: relative;
+  padding: 10px;
+}
+
+.done {
+  background-color: rgba(89, 134, 231, 0.89);
+  text-decoration: line-through;
+}
+
+
+@media only screen and (min-width: 750px) {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 270px);
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 270px);
+    justify-content: center;
+  }
+}

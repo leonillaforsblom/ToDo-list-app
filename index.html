@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&lt;/salt&gt; :: ToDo</title>
+  <link rel="stylesheet" type="text/css" href="style/todo.css">
+</head>
+
+<body>
+  <header>
+    <h1>ToDo List App</h1>
+    <p>All the important things that need to be done!</p>
+  </header>
+  <div class="top-container">
+    <form id="taskform">
+      <input type="text" autofocus id="taskinput" placeholder="Add task">
+      <button class="button" onclick="addTask()">Add</button>
+    </form>
+    <div class="function-buttons">
+      <span><button class="button" id="sortup" onclick="sortAsc()">Sort A-Ö</button></span>
+      <span><button class="button" id="sortdown" onclick="sortDesc()">Sort Ö-A</button></span>
+      <span><button class="button-remove" id="remove" onclick="clearList()">Remove all</button></span>
+    </div>
+  </div>
+  <div class="list-container">
+    <ul id="tasklist">
+    </ul>
+  </div>
+  <script src="js/todo.js"></script>
+</body>
+
+</html>
