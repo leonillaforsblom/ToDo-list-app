@@ -3,17 +3,27 @@ const newTask = {
   done: false
 }
 
+let TASKHISTORY = JSON.parse(localStorage.getItem('toDos'))
+
 const saveTask = () => {
-  let taskhistory = JSON.parse(localStorage.getItem('toDos'))
-  if (!taskhistory) {
-    taskhistory = []
+  if (!TASKHISTORY) {
+    TASKHISTORY = []
   }
-  taskhistory.push(newTask)
-  localStorage.setItem('toDos', JSON.stringify(taskhistory))
+  TASKHISTORY.push(newTask)
+  localStorage.setItem('toDos', JSON.stringify(TASKHISTORY))
 }
 
 const listClick = e => {
   e.target.classList.toggle('done')
+  const findTask = TASKHISTORY.find(task => task.task === e.target.innerText)
+  const index = TASKHISTORY.indexOf(findTask)
+  TASKHISTORY.splice(index, 1)
+  const status =
+    findTask.done === false ? (findTask.done = true) : (findTask.done = false)
+  const upDatedTask = Object.assign(findTask, (findTask.done = status))
+  TASKHISTORY.push(upDatedTask)
+  localStorage.setItem('toDos', JSON.stringify(TASKHISTORY))
+  console.log(TASKHISTORY)
 }
 
 const addTask = () => {
