@@ -12,9 +12,8 @@ const saveTask = () => {
   localStorage.setItem('toDos', JSON.stringify(taskhistory))
 }
 
-const listClick = () => {
-  console.log(this)
-  this.classList.toggle('done')
+const listClick = e => {
+  e.target.classList.toggle('done')
 }
 
 const addTask = () => {
@@ -42,7 +41,7 @@ document.getElementById('taskinput').addEventListener('keypress', e => {
 
 document.getElementById('taskform').addEventListener('submit', e => {
   e.preventDefault()
-  onsubmit = addTask
+  onsubmit = addTask()
 })
 
 const clearList = () => {
