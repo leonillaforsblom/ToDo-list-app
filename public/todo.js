@@ -1,15 +1,10 @@
-const newTask = {
-  task: '',
-  done: false
-}
-
 let TASKHISTORY = JSON.parse(localStorage.getItem('toDos'))
 
-const saveTask = () => {
+const saveTask = item => {
   if (!TASKHISTORY) {
     TASKHISTORY = []
   }
-  TASKHISTORY.push(newTask)
+  TASKHISTORY.push(item)
   localStorage.setItem('toDos', JSON.stringify(TASKHISTORY))
 }
 
@@ -23,10 +18,14 @@ const listClick = e => {
   const upDatedTask = Object.assign(findTask, (findTask.done = status))
   TASKHISTORY.push(upDatedTask)
   localStorage.setItem('toDos', JSON.stringify(TASKHISTORY))
-  console.log(TASKHISTORY)
 }
 
 const addTask = () => {
+  const newTask = {
+    task: '',
+    done: false
+  }
+
   const inputValue = document.getElementById('taskinput').value
   newTask.task = inputValue
   if (inputValue === '' || /^\s*$/.test(inputValue)) {
@@ -40,7 +39,7 @@ const addTask = () => {
   listItem.appendChild(text)
   tasks.insertBefore(listItem, tasks.firstChild)
   document.getElementById('taskinput').value = ''
-  saveTask()
+  saveTask(newTask)
 }
 
 document.getElementById('taskinput').addEventListener('keypress', e => {
@@ -79,16 +78,24 @@ document.getElementById('sortup').addEventListener('click', sortAsc)
 
 document.getElementById('sortdown').addEventListener('click', sortDesc)
 
-window.onload = function getTodos() {
-  const toDoitems = JSON.parse(localStorage.getItem('toDos'))
-  if (!toDoitems) {
+const appendTasksFromStorage = item => {
+  const tasks = document.getElementById('tasklist')
+  tasks.insertBefore(item, tasks.firstChild)
+}
+
+const getTodos = () => {
+  if (!TASKHISTORY) {
     return
   }
-  const tasks = document.getElementById('tasklist')
-  toDoitems.map(e => {
+  TASKHISTORY.map(e => {
     const listItem = document.createElement('li')
+    e.done === true
+      ? (listItem.className = 'done')
+      : (listItem.className = 'taskitem')
     listItem.innerText = e.task
     listItem.addEventListener('click', listClick)
-    tasks.insertBefore(listItem, tasks.firstChild)
+    appendTasksFromStorage(listItem)
   })
 }
+
+window.onload = getTodos()
