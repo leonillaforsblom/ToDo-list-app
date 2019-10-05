@@ -22,7 +22,7 @@ const newTask = {
   done: false,
 };
 
-function addTask() {
+const addTask = () => {
 
   const inputValue = document.getElementById('taskinput').value;
   newTask.task = inputValue;
@@ -46,31 +46,31 @@ document.getElementById('taskinput').addEventListener('keypress', e => {
   }
 });
 
-function listClick() {
+const listClick = () => {
   this.classList.toggle('done');
 }
 
-function clearList() {
+const clearList = () => {
   const taskremove = document.getElementById('tasklist');
   taskremove.innerHTML = '';
   localStorage.clear();
 }
 
-function sortAsc() {
+const sortAsc = () => {
   const sortlist = document.getElementById('tasklist');
   Array.from(sortlist.getElementsByTagName('li'))
     .sort((a, b) => a.textContent.localeCompare(b.textContent))
     .forEach(li => sortlist.appendChild(li));
 }
 
-function sortDesc() {
+const sortDesc = () => {
   const sortlist = document.getElementById('tasklist');
   Array.from(sortlist.getElementsByTagName('li'))
     .sort((a, b) => b.textContent.localeCompare(a.textContent))
     .forEach(li => sortlist.appendChild(li));
 }
 
-function saveTask() {
+const saveTask = () => {
   let taskhistory = JSON.parse(localStorage.getItem('toDos'));
   if (!taskhistory) {
     taskhistory = [];

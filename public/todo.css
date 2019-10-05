@@ -53,6 +53,10 @@ button {
   font-size: 12px;
 }
 
+#addBtn {
+  width: 60px;
+}
+
 .button-remove {
   background-color: rgb(241, 58, 58);
   top: 10px;

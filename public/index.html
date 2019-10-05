@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>&lt;/salt&gt; :: ToDo</title>
-  <link rel="stylesheet" type="text/css" href="style/todo.css">
+  <link rel="stylesheet" type="text/css" href="todo.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
   <div class="top-container">
     <form id="taskform">
       <input type="text" autofocus id="taskinput" placeholder="Add task">
-      <button class="button" onclick="addTask()">Add</button>
+      <button class="button" id="addBtn" onclick="addTask()">Add</button>
     </form>
     <div class="function-buttons">
       <span><button class="button" id="sortup" onclick="sortAsc()">Sort A-Ö</button></span>
@@ -28,7 +28,7 @@
     <ul id="tasklist">
     </ul>
   </div>
-  <script src="js/todo.js"></script>
+  <script src="todo.js"></script>
 </body>
 
 </html>
